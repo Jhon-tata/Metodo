@@ -1,1 +1,57 @@
-# Metodo
+
+public class Main {
+    public static void main(String[] args) {
+        Figura f1 = new Cuadrado(4);
+        Figura f2 = new Circulo(3);
+
+        System.out.println("Área cuadrado: " + f1.calcularArea());
+        System.out.println("Perímetro cuadrado: " + f1.calcularPerimetro());
+
+        System.out.println("Área círculo: " + f2.calcularArea());
+        System.out.println("Perímetro círculo: " + f2.calcularPerimetro());
+    }
+}
+interface Figura {
+    double calcularArea();
+    double calcularPerimetro();
+}
+
+
+class Cuadrado implements Figura {
+    private double lado;
+
+    public Cuadrado(double lado) {
+        this.lado = lado;
+    }
+
+    @Override
+    public double calcularArea() {
+        return lado * lado;
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return 4 * lado;
+    }
+}
+
+
+class Circulo implements Figura {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return 2 * Math.PI * radio;
+    }
+}
+
+
